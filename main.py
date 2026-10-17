@@ -25,12 +25,12 @@ game = {
 }
 
 def get_launcher_version(url):
-    response = requests.get(url)
+    response = requests.get(url,timeout=10)
     data = response.json()
     return data.get("default", {}).get("resource", None).get("version", None), data
 
 def get_game_version(url):
-    response = requests.get(url)
+    response = requests.get(url,timeout=10)
     data = response.json()
     if not data.get("resourcePacks",{}):
         return data.get("default",{}).get("version",None),data
