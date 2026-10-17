@@ -1,8 +1,6 @@
 name: Update index.json
 
 on:
-  schedule:
-    - cron: "*/20 * * * *" # This line has been changed
   workflow_dispatch:
 
 jobs:
@@ -25,6 +23,7 @@ jobs:
         run: python main.py
 
       - name: Check for changes
+        id: uc
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -35,3 +34,44 @@ jobs:
           fi
           git commit -m "Update index.json ($(date -u +'%Y-%m-%d'))"
           git push
+          echo "changed=true" >> $GITHUB_OUTPUT
+          SHA=$(git rev-parse HEAD)
+          echo "commit_sha=$SHA" >> $GITHUB_OUTPUT
+      - name: Ue
+        if: steps.uc.outputs.changed == 'true'
+        id: Ue
+        run: |
+          COMMIT_SHA="${{ steps.uc.outputs.commit_sha }}"
+          CHANGED_PATHS=$(git diff-tree --no-commit-id --name-status -r $COMMIT_SHA | sed 's/^/  /')
+
+          LOG_MSG=$(git log -1 --format="%B" $COMMIT_SHA)
+
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "email_body<<$EOF" >> $GITHUB_OUTPUT
+          echo "Branch: ${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          echo "Home:   ${{ github.server_url }}/${{ github.repository }}" >> $GITHUB_OUTPUT
+          echo "Commit: $COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "  ${{ github.server_url }}/${{ github.repository }}/commit/$COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Author: ${{ github.actor }}" >> $GITHUB_OUTPUT
+          echo "Date:   $(git log -1 --format="%cd" --date=iso-strict $COMMIT_SHA)" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "Changed paths:" >> $GITHUB_OUTPUT
+          echo "$CHANGED_PATHS" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "Log Message:" >> $GITHUB_OUTPUT
+          echo "-----------" >> $GITHUB_OUTPUT
+          echo "$LOG_MSG" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+      - name: send mail
+        if: steps.uc.outputs.changed == 'true'
+        uses: dawidd6/action-send-mail@v22
+        with:
+          server_address: smtp.qq.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.mail1 }}
+          password: ${{ secrets.mail2 }}
+          from: 'GitHub Actions <${{ secrets.mail1 }}>'
+          to: ${{ secrets.mail1 }}
+          subject: "[${{ github.repository }}] ${{ github.ref_name }} has new push"
+          body: ${{ steps.Ue.outputs.email_body }}
