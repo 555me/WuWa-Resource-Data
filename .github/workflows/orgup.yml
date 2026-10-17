@@ -1,4 +1,4 @@
-name: Update index.json
+name: orgup
 
 on:
   workflow_dispatch:
