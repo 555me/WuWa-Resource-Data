@@ -25,17 +25,23 @@ game = {
 }
 
 def get_launcher_version(url):
-    response = requests.get(url,timeout=10)
-    data = response.json()
-    return data.get("default", {}).get("resource", None).get("version", None), data
+    try:
+        response = requests.get(url,timeout=10)
+        data = response.json()
+        return data.get("default", {}).get("resource", None).get("version", None), data
+    except RequestException as err:
+        return None,{}
 
 def get_game_version(url):
-    response = requests.get(url,timeout=10)
-    data = response.json()
-    if not data.get("resourcePacks",{}):
-        return data.get("default",{}).get("version",None),data
-    else:
-        return data.get("resourcePacks", {}).get("common", {}).get("version",None), data
+    try:
+        response = requests.get(url,timeout=10)
+        data = response.json()
+        if not data.get("resourcePacks",{}):
+            return data.get("default",{}).get("version",None),data
+        else:
+            return data.get("resourcePacks", {}).get("common", {}).get("version",None), data
+    except RequestException as err:
+        return None,{}
 
 def save_json_to_file(directory, filename, data):
     if not os.path.exists(directory):
