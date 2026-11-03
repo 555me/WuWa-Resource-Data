@@ -654,7 +654,7 @@
                         "fileSizeCheckSwitch": "1",
                         "fileChunkCheckSwitch": "1",
                         "resValidCheckTimeOut": "10",
-                        "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe"
+                        "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe:Client/Saved/"
                     },
                     "download": {
                         "downloadReadBlockTimeout": "30",
@@ -664,7 +664,8 @@
                         "applyMethodFeature": "group"
                     },
                     "repair": {
-                        "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]"
+                        "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]",
+                        "repairFileCheckWhiteListConfig": "Client/Saved/"
                     },
                     "mainButton": {
                         "exitGameEntry": "1"
@@ -788,7 +789,7 @@
                         "fileSizeCheckSwitch": "1",
                         "fileChunkCheckSwitch": "1",
                         "resValidCheckTimeOut": "10",
-                        "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe"
+                        "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe:Client/Saved/"
                     },
                     "download": {
                         "downloadReadBlockTimeout": "30",
@@ -798,7 +799,8 @@
                         "applyMethodFeature": "group"
                     },
                     "repair": {
-                        "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]"
+                        "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]",
+                        "repairFileCheckWhiteListConfig": "Client/Saved/"
                     },
                     "mainButton": {
                         "exitGameEntry": "1"
@@ -901,7 +903,7 @@
                         "fileSizeCheckSwitch": "1",
                         "fileChunkCheckSwitch": "1",
                         "resValidCheckTimeOut": "10",
-                        "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe"
+                        "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe:Client/Saved/"
                     },
                     "download": {
                         "downloadReadBlockTimeout": "30",
@@ -911,7 +913,8 @@
                         "applyMethodFeature": "group"
                     },
                     "repair": {
-                        "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]"
+                        "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]",
+                        "repairFileCheckWhiteListConfig": "Client/Saved/"
                     },
                     "mainButton": {
                         "exitGameEntry": "1"
@@ -979,7 +982,7 @@
                 "fileSizeCheckSwitch": "1",
                 "fileChunkCheckSwitch": "1",
                 "resValidCheckTimeOut": "10",
-                "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe"
+                "fileCheckWhiteListConfig": "Client/Config/RTX.json:Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.pcl.dll:Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe:Client/Saved/"
             },
             "download": {
                 "downloadReadBlockTimeout": "30",
@@ -989,7 +992,8 @@
                 "applyMethodFeature": "group"
             },
             "repair": {
-                "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]"
+                "directoryIntegrityCheckList": "[{\"dir\":\"Client/Content/Paks\",\"exts\":[\"pak\",\"sig\"],\"recursive\":true}]",
+                "repairFileCheckWhiteListConfig": "Client/Saved/"
             },
             "mainButton": {
                 "exitGameEntry": "1"
