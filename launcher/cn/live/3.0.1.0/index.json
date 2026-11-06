@@ -48,6 +48,7 @@
     },
     "crashInitSwitch": 1,
     "resourcesGray": {
-        "graySwitch": 0
+        "graySwitch": 1,
+        "grayUrl": "https://pc-launcher-gray-api-v3.kurogames.com/launcher/gray"
     }
 }
